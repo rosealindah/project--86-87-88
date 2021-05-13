@@ -2,9 +2,9 @@ var canvas=new fabric.Canvas("mycanvas");
 block_image_width=30;
 block_image_height=30;
 
-hero_x=10;
-hero_y=10;
-var player_object="";
+hero_x=40;
+hero_y=40;
+var hero_object="";
 function player_update(){
     fabric.Image.fromURL("player.png", function(img1){
 hero_object=img1;
@@ -14,9 +14,8 @@ hero_object.set({
     top:hero_y,
     left:hero_x
 })
-canvas.add(player_object)
+canvas.add(hero_object)
     });}
-  
 function new_image(get_image){
     fabric.Image.fromURL(get_image, function(img2){
 block_image_object=img2;
@@ -80,7 +79,7 @@ function my_keydown(e){
       
     }
     if (keypressed=='72'){
-        new_image ('captian_america_left_hand.png');
+        new_image ('captain_america_left_hand.png');
         console.log("h key is pressed");
      
     }
@@ -88,9 +87,9 @@ function my_keydown(e){
 function up(){
     if(hero_y>=0){
        hero_y=hero_y-block_image_height;
-        console.log("block image height= "+ block_image_height);
+        console.log("hero image height= "+ block_image_height);
         console.log("when up arrow is being pressed,x= "+hero_x+" y= "+hero_y);
-        canvas.remove(player_object);
+        canvas.remove(hero_object);
          player_update();
     }
 }
@@ -99,7 +98,7 @@ function down(){
    hero_y=hero_y+block_image_height;
     console.log("block image height= "+ block_image_height);
     console.log("when down arrow is being pressed,x= "+hero_x+" y= "+hero_y);
-    canvas.remove(player_object);
+    canvas.remove(hero_object);
      player_update();
 }}
 function left(){
@@ -107,7 +106,7 @@ function left(){
         hero_x=hero_x-block_image_width;
         console.log("block image width= "+ block_image_width);
         console.log("when left arrow is being pressed,x= "+hero_x+" y= "+hero_y);
-        canvas.remove(player_object);
+        canvas.remove(hero_object);
          player_update();
     }}
 function right(){
@@ -115,6 +114,6 @@ function right(){
         hero_x=hero_x+block_image_width;
         console.log("block image_width= "+ block_image_width);
         console.log("when right arrow is being pressed,x= "+hero_x+" y= "+hero_y);
-        canvas.remove(player_object);
+        canvas.remove(hero_object);
          player_update();
     }}
